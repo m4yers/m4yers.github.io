@@ -1,0 +1,9 @@
+links:
+- title: Letters
+  url: /
+- title: Search
+  url: /search
+- title: About
+  url: /about
+- title: Rss
+  url: /atom.xml
