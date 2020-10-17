@@ -36,14 +36,14 @@ So, C++ templates and Lisp, let's see. The basic building blocks of any lisp is
 two things: atoms and lists. Templates mainly operate on types, so for
 simplicity sake let us use type atoms. The list then looks like this:
 
-```
+```cpp
 template<typename... Ts> struct list {};
 ```
 
 To manipulate lists we need some functions. The most basic LISP functions you
 can find are *car* and *cdr*. With a bit of renaming we have the following:
 
-```
+```cpp
 // first
 template<typename T, typename... Ts>
 constexpr auto first_impl(list<T, Ts...>) -> T;
@@ -62,7 +62,7 @@ using tail = decltype(tail_impl<>(L{}));
 With only these two functions you already can freely manipulate lists of types.
 How about type maps:
 
-```
+```cpp
 // map
 template<template<typename> typename F, typename... Ts>
 constexpr auto map_impl(list<Ts...>) -> list<typename F<Ts>::type...>;
@@ -76,7 +76,7 @@ straightforward, this function applies a function *F* over all elements of list
 *L* and returns a new list with the results. For example to *const* all types
 you would do the following:
 
-```
+```cpp
 struct Deckard, Batty, Bryant, Chew, Gaff;
 
 // result is list<const Deckard, const Batty, const Bryant, const Chew, const Gaff>
@@ -87,7 +87,7 @@ Existing C++ type traits are perfectly fine with such treatment. Now you can
 map any trait over any list of types in one go. In the same vein we can
 implement filtering:
 
-```
+```cpp
 // tuple
 template<typename... Ts> constexpr
 bool is_tuple = false;
@@ -116,7 +116,7 @@ To save some space and time we used *std::tuple* to deal with *holes* in the
 output list. Nevertheless, the resulting function allows us once again use some
 of the C++ type traits to filter list of types:
 
-```
+```cpp
 struct Holden, Leon, Taffey;
 
 // result is list<const Leon>
@@ -132,7 +132,7 @@ perfectly fine for filtering, but if you want to use these predicates with the
 *map* function, you would want to consider wrapping those bools in *nil* and
 *non-nil*. Nil by the way can be implemented like this:
 
-```
+```cpp
 using nil = list<>
 ```
 
