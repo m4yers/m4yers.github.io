@@ -1,10 +1,19 @@
 <header role="banner">
-      <!--<h1 class="logo">{{ site.title }}</h1>-->
-      <nav role="navigation">
-<ul>
-   {% for item in site.data.navigation.links %}
-      <li><a href="{{ item.url }}" {% if item.url == page.url %} class="active"{% endif %}>{{ item.title }}</a></li>
-   {% endfor %}
-</ul>
-</nav>
+  <h1 class="logo">{{ site.title }}</h1>
+  <nav role="navigation">
+    <p class="media-links">
+      {% for contact in site.contacts %}
+
+        {% assign contact_icon_path = "/assets/img/icons/" | append: contact.name | downcase | append: ".png" | absolute_url %}
+        <a href="{{ contact.link }}"><img src="{{ contact_icon_path }}" width=15 height=15/></a>
+
+      {% endfor %}
+    </p>
+
+    <ul>
+       {% for item in site.data.navigation.links %}
+          <li><a href="{{ item.url }}" {% if item.url == page.url %} class="active"{% endif %}>{{ item.title }}</a></li>
+       {% endfor %}
+    </ul>
+  </nav>
 </header>

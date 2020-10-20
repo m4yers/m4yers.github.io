@@ -1,16 +1,18 @@
 url: #yoururl
 title: Letters from the Outer Shell
 description: A repository of opinions about tech, science, maths and everything else
-twitter:
-  username: #yourusername
-  card: summary
-  creator: #yourusername
-author:
-  twitter: #yourusername
-  name: #yourusername
-  avatar:
-  email: #youremail
-  url: #yoururl
+
+contacts:
+  - name: Email
+    value: m4yers@gmail.com
+    link: mailto:m4yers@gmail.com
+  - name: GitHub
+    link: http://github.com/m4yers
+  - name: LinkedIn
+    link: http://linkedin.com/in/m4yers
+  - name: RSS
+    link: /atom.xml
+
 permalink: pretty
 
 baseurl: ""
