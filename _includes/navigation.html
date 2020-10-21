@@ -5,7 +5,7 @@
       {% for contact in site.contacts %}
 
         {% assign contact_icon_path = "/assets/img/icons/" | append: contact.name | downcase | append: ".png" | absolute_url %}
-        <a href="{{ contact.link }}"><img src="{{ contact_icon_path }}" width=15 height=15/></a>
+        <a href="{{ contact.link }}"><img src="{{ contact_icon_path }}" width=13 height=13/></a>
 
       {% endfor %}
     </p>
